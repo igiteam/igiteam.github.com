@@ -606,9 +606,12 @@
 
                 // If we have more than 100 repos, we might need to fetch additional pages
                 // For now, we'll just use the first 100 (most recently updated)
+                // ALPHABETICAL SORTING - ADD THIS LINE:
+                reposData.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+
 
                 // Sort by stars (descending) to show popular repos first
-                reposData.sort((a, b) => b.stargazers_count - a.stargazers_count);
+                //reposData.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
                 // Render the repositories
                 renderRepositories(reposData, userData);
