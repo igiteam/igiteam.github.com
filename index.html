@@ -71,9 +71,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 24px;
-            padding-bottom: 16px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
             border-bottom: 1px solid var(--github-border);
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .repo-header h1 {
@@ -91,6 +93,14 @@
             margin-top: 8px;
         }
 
+        .search-container {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: nowrap;
+            /* Changed from wrap to nowrap */
+        }
+
         .repo-search {
             background-color: var(--github-bg);
             border: 1px solid var(--github-border);
@@ -101,12 +111,119 @@
             width: 300px;
             transition: all 0.2s;
             box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
+            flex-shrink: 0;
+            /* Prevent search from shrinking */
         }
 
         .repo-search:focus {
             outline: none;
             border-color: var(--github-primary);
             box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.15);
+        }
+
+        .view-controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex: 1;
+            /* Take remaining space */
+            justify-content: flex-end;
+            /* Push to the right */
+        }
+
+        .sort-buttons {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            flex-shrink: 0;
+            /* Prevent sorting buttons from shrinking */
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            flex-shrink: 0;
+            /* Prevent view toggle from shrinking */
+        }
+
+        .btn-icon {
+            background: none;
+            border: 1px solid var(--github-border);
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            color: var(--github-text-secondary);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            background-color: var(--github-bg);
+            white-space: nowrap;
+            /* Prevent text wrapping */
+        }
+
+        /* Optional: Hide text on smaller screens and show only icons */
+        @media (max-width: 900px) {
+            .sort-text {
+                display: none;
+                /* Hide text on smaller screens */
+            }
+
+            .btn-icon {
+                padding: 8px;
+                /* Adjust padding when only icons show */
+            }
+        }
+
+        /* Adjust for very small screens */
+        @media (max-width: 700px) {
+            .search-container {
+                flex-wrap: wrap;
+                /* Allow wrapping only on very small screens */
+            }
+
+            .repo-search {
+                width: 100%;
+                /* Full width on mobile */
+            }
+
+            .view-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        .btn-icon {
+            background: none;
+            border: 1px solid var(--github-border);
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            color: var(--github-text-secondary);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            background-color: var(--github-bg);
+        }
+
+        .btn-icon:hover {
+            background-color: var(--github-hover);
+            border-color: var(--github-primary);
+            color: var(--github-primary);
+        }
+
+        .btn-icon.active {
+            background-color: var(--github-primary);
+            border-color: var(--github-primary);
+            color: white;
+        }
+
+        .btn-icon i {
+            font-size: 14px;
         }
 
         .user-info {
@@ -116,35 +233,121 @@
             margin-bottom: 8px;
         }
 
+        .user-details {
+            display: flex;
+            flex-direction: row;
+            /* Changed from column to row */
+            align-items: center;
+            /* Align items vertically */
+            gap: 8px;
+            /* Space between name and count */
+            flex-wrap: wrap;
+            /* Allow wrapping on small screens */
+        }
+
         .user-avatar {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             border: 1px solid var(--github-border);
+            flex-shrink: 0;
+            /* Prevents avatar from shrinking */
         }
 
         .user-name {
             font-weight: 600;
             font-size: 18px;
+            line-height: 1.2;
+            /* Tighter line height */
+        }
+
+        .repo-count {
+            font-size: 14px;
+            color: var(--github-text-secondary);
+            background-color: var(--github-hover);
+            padding: 2px 12px;
+            /* Slightly adjusted padding */
+            border-radius: 12px;
+            display: inline-block;
+            /* Makes it fit content width */
+            align-self: flex-start;
+            /* Aligns to left instead of stretching */
         }
 
         /* Repository Grid */
         .repo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .repo-grid.grid-view {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+
+        .repo-grid.list-view {
+            grid-template-columns: 1fr;
+        }
+
+        /* Repository Item - Grid View */
+        .repo-grid.grid-view .repo-item {
+            padding: 24px;
+            flex-direction: column;
+        }
+
+        .repo-grid.grid-view .repo-meta {
+            flex-wrap: wrap;
+        }
+
+        /* Repository Item - List View */
+        .repo-grid.list-view .repo-item {
+            padding: 20px 24px;
+            display: grid;
+            grid-template-columns: minmax(200px, auto) 1fr auto;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .repo-grid.list-view .repo-title {
+            margin-bottom: 0;
+            width: 250px;
+        }
+
+        .repo-grid.list-view .repo-description {
+            margin-bottom: 0;
+            -webkit-line-clamp: 2;
+        }
+
+        .repo-grid.list-view .repo-meta {
+            margin-top: 0;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            min-width: 300px;
+        }
+
+        @media (max-width: 900px) {
+            .repo-grid.list-view .repo-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .repo-grid.list-view .repo-title {
+                width: auto;
+            }
+
+            .repo-grid.list-view .repo-meta {
+                justify-content: flex-start;
+            }
         }
 
         /* Repository Item */
         .repo-item {
-            padding: 24px;
             border: 1px solid var(--github-border);
             border-radius: 8px;
             background-color: var(--github-repo-bg);
             transition: all 0.2s;
             display: flex;
-            flex-direction: column;
             height: 100%;
             box-shadow: 0 1px 3px var(--github-shadow);
         }
@@ -169,6 +372,8 @@
             font-weight: 600;
             line-height: 1.3;
             flex: 1;
+            word-break: break-all;
+            /* Breaks anywhere */
         }
 
         .repo-title a:hover {
@@ -206,6 +411,7 @@
             font-size: 12px;
             color: var(--github-text-secondary);
             margin-top: auto;
+            align-items: center;
         }
 
         .repo-language {
@@ -325,12 +531,6 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 900px) {
-            .repo-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-
         @media (max-width: 768px) {
             body {
                 padding: 16px;
@@ -339,34 +539,24 @@
             .repo-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 16px;
+            }
+
+            .search-container {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
             }
 
             .repo-search {
                 width: 100%;
             }
 
-            .repo-grid {
+            .view-controls {
+                justify-content: space-between;
+            }
+
+            .repo-grid.grid-view {
                 grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .repo-header h1 {
-                font-size: 24px;
-            }
-
-            .repo-item {
-                padding: 20px;
-            }
-
-            .repo-meta {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .repo-stats {
-                gap: 12px;
             }
         }
     </style>
@@ -380,21 +570,51 @@
                 <div class="user-info">
                     <img src="https://github.com/igiteam.png" alt="GitHub Avatar" class="user-avatar" id="userAvatar"
                         onerror="this.src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'">
-                    <div>
+                    <div class="user-details">
                         <div class="user-name" id="userName">IGITeam</div>
                         <div class="repo-count" id="repoCount">Loading repositories...</div>
                     </div>
+                    <div class="api-info">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Live data from GitHub API</span>
+                    </div>
                 </div>
-                <div class="api-info">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Live data from GitHub API</span>
+
+            </div>
+
+            <div class="search-container">
+                <input type="text" class="repo-search" placeholder="Find a repository..." id="repoSearch">
+
+                <div class="view-controls">
+                    <div class="sort-buttons">
+                        <button class="btn-icon" id="sortTimeBtn" title="Sort by last updated">
+                            <i class="fas fa-clock"></i>
+                            <span class="sort-text">Time</span>
+                        </button>
+                        <button class="btn-icon" id="sortStarsBtn" title="Sort by stars">
+                            <i class="far fa-star"></i>
+                            <span class="sort-text">Stars</span>
+                        </button>
+                        <button class="btn-icon" id="sortNameBtn" title="Sort by name">
+                            <i class="fas fa-font"></i>
+                            <span class="sort-text">Name</span>
+                        </button>
+                    </div>
+
+                    <div class="view-toggle">
+                        <button class="btn-icon" id="gridViewBtn" title="Grid view">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="btn-icon" id="listViewBtn" title="List view">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <input type="text" class="repo-search" placeholder="Find a repository..." id="repoSearch">
         </div>
 
         <!-- Repository Grid -->
-        <div class="repo-grid" id="reposContainer">
+        <div class="repo-grid grid-view" id="reposContainer">
             <div class="loading" id="loadingState">
                 <i class="fas fa-spinner fa-spin"></i>
                 <p>Loading repositories from GitHub...</p>
@@ -454,6 +674,13 @@
             "OCaml": "#3be133"
         };
 
+        // State management
+        let currentRepos = [];
+        let currentUserData = null;
+        let currentSort = localStorage.getItem('repoSort') || 'time';
+        let currentView = localStorage.getItem('repoView') || 'grid';
+        let currentSearchQuery = '';
+
         // Format date to relative time
         function formatDate(dateString) {
             const date = new Date(dateString);
@@ -482,6 +709,67 @@
                 const years = Math.floor(diffInSeconds / 31536000);
                 return `${years} year${years > 1 ? 's' : ''} ago`;
             }
+        }
+
+        // Sort repositories
+        function sortRepositories(repositories, sortType) {
+            const repos = [...repositories];
+
+            switch (sortType) {
+                case 'stars':
+                    return repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+                case 'name':
+                    return repos.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+                case 'time':
+                default:
+                    return repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+            }
+        }
+
+        // Search repositories
+        function searchRepositories(repositories, query) {
+            if (!query.trim()) {
+                return repositories;
+            }
+
+            const searchTerms = query.toLowerCase().split(' ');
+            return repositories.filter(repo => {
+                const repoText = `
+                    ${repo.name.toLowerCase()}
+                    ${repo.description ? repo.description.toLowerCase() : ''}
+                    ${repo.language ? repo.language.toLowerCase() : ''}
+                    ${repo.topics ? repo.topics.join(' ').toLowerCase() : ''}
+                `;
+
+                return searchTerms.every(term => repoText.includes(term));
+            });
+        }
+
+        // Update view buttons active state
+        function updateViewButtons() {
+            const gridBtn = document.getElementById('gridViewBtn');
+            const listBtn = document.getElementById('listViewBtn');
+
+            gridBtn.classList.toggle('active', currentView === 'grid');
+            listBtn.classList.toggle('active', currentView === 'list');
+        }
+
+        // Update sort buttons active state
+        function updateSortButtons() {
+            const sortTimeBtn = document.getElementById('sortTimeBtn');
+            const sortStarsBtn = document.getElementById('sortStarsBtn');
+            const sortNameBtn = document.getElementById('sortNameBtn');
+
+            sortTimeBtn.classList.toggle('active', currentSort === 'time');
+            sortStarsBtn.classList.toggle('active', currentSort === 'stars');
+            sortNameBtn.classList.toggle('active', currentSort === 'name');
+        }
+
+        // Apply view to container
+        function applyView() {
+            const container = document.getElementById('reposContainer');
+            container.classList.toggle('grid-view', currentView === 'grid');
+            container.classList.toggle('list-view', currentView === 'list');
         }
 
         // Render repositories
@@ -549,25 +837,81 @@
 
             container.innerHTML = html;
             repoCount.textContent = `${repositories.length} repositories`;
+
+            // Apply current view
+            applyView();
         }
 
-        // Search repositories
-        function searchRepositories(repositories, query) {
-            if (!query.trim()) {
-                return repositories;
-            }
+        // Update and render with current state
+        function updateAndRender() {
+            if (!currentRepos.length) return;
 
-            const searchTerms = query.toLowerCase().split(' ');
-            return repositories.filter(repo => {
-                const repoText = `
-                    ${repo.name.toLowerCase()}
-                    ${repo.description ? repo.description.toLowerCase() : ''}
-                    ${repo.language ? repo.language.toLowerCase() : ''}
-                    ${repo.topics ? repo.topics.join(' ').toLowerCase() : ''}
-                `;
+            // Apply search
+            let filteredRepos = searchRepositories(currentRepos, currentSearchQuery);
 
-                return searchTerms.every(term => repoText.includes(term));
+            // Apply sort
+            filteredRepos = sortRepositories(filteredRepos, currentSort);
+
+            // Render
+            renderRepositories(filteredRepos, currentUserData);
+
+            // Update button states
+            updateSortButtons();
+        }
+
+        // Setup event listeners for controls
+        function setupControls() {
+            const searchInput = document.getElementById('repoSearch');
+            const sortTimeBtn = document.getElementById('sortTimeBtn');
+            const sortStarsBtn = document.getElementById('sortStarsBtn');
+            const sortNameBtn = document.getElementById('sortNameBtn');
+            const gridViewBtn = document.getElementById('gridViewBtn');
+            const listViewBtn = document.getElementById('listViewBtn');
+
+            // Search
+            searchInput.addEventListener('input', (e) => {
+                currentSearchQuery = e.target.value;
+                updateAndRender();
             });
+
+            // Sort buttons
+            sortTimeBtn.addEventListener('click', () => {
+                currentSort = 'time';
+                localStorage.setItem('repoSort', 'time');
+                updateAndRender();
+            });
+
+            sortStarsBtn.addEventListener('click', () => {
+                currentSort = 'stars';
+                localStorage.setItem('repoSort', 'stars');
+                updateAndRender();
+            });
+
+            sortNameBtn.addEventListener('click', () => {
+                currentSort = 'name';
+                localStorage.setItem('repoSort', 'name');
+                updateAndRender();
+            });
+
+            // View buttons
+            gridViewBtn.addEventListener('click', () => {
+                currentView = 'grid';
+                localStorage.setItem('repoView', 'grid');
+                updateViewButtons();
+                applyView();
+            });
+
+            listViewBtn.addEventListener('click', () => {
+                currentView = 'list';
+                localStorage.setItem('repoView', 'list');
+                updateViewButtons();
+                applyView();
+            });
+
+            // Set initial button states
+            updateViewButtons();
+            updateSortButtons();
+            applyView();
         }
 
         // Fetch data from GitHub API
@@ -604,30 +948,21 @@
                 const userData = await userResponse.json();
                 let reposData = await reposResponse.json();
 
-                // If we have more than 100 repos, we might need to fetch additional pages
-                // For now, we'll just use the first 100 (most recently updated)
-                // ALPHABETICAL SORTING - ADD THIS LINE:
-                reposData.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+                // Store data
+                currentRepos = reposData;
+                currentUserData = userData;
 
-
-                // Sort by stars (descending) to show popular repos first
-                //reposData.sort((a, b) => b.stargazers_count - a.stargazers_count);
+                // Apply initial sort from localStorage
+                currentRepos = sortRepositories(currentRepos, currentSort);
 
                 // Render the repositories
-                renderRepositories(reposData, userData);
+                renderRepositories(currentRepos, userData);
 
-                // Store repos for searching
-                window.allRepos = reposData;
-
-                // Setup search functionality
-                const searchInput = document.getElementById('repoSearch');
-                searchInput.addEventListener('input', (e) => {
-                    const filteredRepos = searchRepositories(window.allRepos, e.target.value);
-                    renderRepositories(filteredRepos, userData);
-                });
+                // Setup controls
+                setupControls();
 
                 // Focus on search input
-                searchInput.focus();
+                document.getElementById('repoSearch').focus();
 
             } catch (error) {
                 console.error('Error fetching GitHub data:', error);
@@ -675,30 +1010,34 @@
                     updated_at: new Date(Date.now() - 86400000).toISOString(), // Yesterday
                     private: false,
                     html_url: "https://github.com/igiteam"
+                },
+                {
+                    name: "awesome-tool",
+                    description: "An awesome tool for developers",
+                    language: "Python",
+                    stargazers_count: 15,
+                    forks_count: 3,
+                    updated_at: new Date(Date.now() - 172800000).toISOString(), // 2 days ago
+                    private: false,
+                    html_url: "https://github.com/igiteam"
                 }
             ];
 
-            const userData = {
+            currentRepos = sortRepositories(sampleRepos, currentSort);
+            currentUserData = {
                 name: "IGITeam",
                 login: "igiteam",
                 html_url: "https://github.com/igiteam"
             };
 
-            renderRepositories(sampleRepos, userData);
-            window.allRepos = sampleRepos;
+            renderRepositories(currentRepos, currentUserData);
+            setupControls();
 
             // Update API info to show fallback
             document.querySelector('.api-info').innerHTML = `
                 <i class="fas fa-exclamation-triangle" style="color: #cf222e;"></i>
                 <span>Using sample data (GitHub API unavailable)</span>
             `;
-
-            // Setup search for sample data
-            const searchInput = document.getElementById('repoSearch');
-            searchInput.addEventListener('input', (e) => {
-                const filteredRepos = searchRepositories(window.allRepos, e.target.value);
-                renderRepositories(filteredRepos, userData);
-            });
         }
 
         // Initialize the page
