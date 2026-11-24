@@ -11,27 +11,19 @@
     <link rel="icon" type="image/png" href="https://github.com/igiteam.png" sizes="192x192">
     <link rel="icon" type="image/png" href="https://github.com/igiteam.png" sizes="512x512">
     <meta itemprop="name" content="igiteam.github.io - Repositories">
-    <meta itemprop="image"
-        content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
+    <meta itemprop="image" content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
     <meta property="og:title" content="igiteam.github.io - Repositories">
-    <meta property="og:image"
-        content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
+    <meta property="og:image" content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
     <meta property="og:url" content="">
     <meta property="og:type" content="website">
     <meta name="twitter:title" content="igiteam.github.io - Repositories">
-    <meta name="twitter:image"
-        content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
+    <meta name="twitter:image" content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="apple-touch-icon" href="https://github.githubassets.com/favicons/favicon.png" sizes="180x180">
 
-    <meta itemprop="image"
-        content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
-
-    <meta property="og:image"
-        content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
-
-    <meta name="twitter:image"
-        content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
+    <meta itemprop="image" content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
+    <meta property="og:image" content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
+    <meta name="twitter:image" content="https://opengraph.githubassets.com/f5af2a1baaa2cfcb3e75750272d03a432ccefe6bcaee8c93cfc515144aed259a/igiteam/igiteam.github.com">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -98,7 +90,6 @@
             gap: 12px;
             align-items: center;
             flex-wrap: nowrap;
-            /* Changed from wrap to nowrap */
         }
 
         .repo-search {
@@ -112,7 +103,6 @@
             transition: all 0.2s;
             box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04);
             flex-shrink: 0;
-            /* Prevent search from shrinking */
         }
 
         .repo-search:focus {
@@ -126,9 +116,7 @@
             gap: 8px;
             align-items: center;
             flex: 1;
-            /* Take remaining space */
             justify-content: flex-end;
-            /* Push to the right */
         }
 
         .sort-buttons {
@@ -136,7 +124,6 @@
             gap: 4px;
             align-items: center;
             flex-shrink: 0;
-            /* Prevent sorting buttons from shrinking */
         }
 
         .view-toggle {
@@ -144,7 +131,6 @@
             gap: 4px;
             align-items: center;
             flex-shrink: 0;
-            /* Prevent view toggle from shrinking */
         }
 
         .btn-icon {
@@ -161,53 +147,31 @@
             transition: all 0.2s;
             background-color: var(--github-bg);
             white-space: nowrap;
-            /* Prevent text wrapping */
         }
 
-        /* Optional: Hide text on smaller screens and show only icons */
         @media (max-width: 900px) {
             .sort-text {
                 display: none;
-                /* Hide text on smaller screens */
             }
 
             .btn-icon {
                 padding: 8px;
-                /* Adjust padding when only icons show */
             }
         }
 
-        /* Adjust for very small screens */
         @media (max-width: 700px) {
             .search-container {
                 flex-wrap: wrap;
-                /* Allow wrapping only on very small screens */
             }
 
             .repo-search {
                 width: 100%;
-                /* Full width on mobile */
             }
 
             .view-controls {
                 width: 100%;
                 justify-content: space-between;
             }
-        }
-
-        .btn-icon {
-            background: none;
-            border: 1px solid var(--github-border);
-            border-radius: 6px;
-            padding: 8px 12px;
-            cursor: pointer;
-            color: var(--github-text-secondary);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.2s;
-            background-color: var(--github-bg);
         }
 
         .btn-icon:hover {
@@ -236,13 +200,9 @@
         .user-details {
             display: flex;
             flex-direction: row;
-            /* Changed from column to row */
             align-items: center;
-            /* Align items vertically */
             gap: 8px;
-            /* Space between name and count */
             flex-wrap: wrap;
-            /* Allow wrapping on small screens */
         }
 
         .user-avatar {
@@ -251,14 +211,12 @@
             border-radius: 50%;
             border: 1px solid var(--github-border);
             flex-shrink: 0;
-            /* Prevents avatar from shrinking */
         }
 
         .user-name {
             font-weight: 600;
             font-size: 18px;
             line-height: 1.2;
-            /* Tighter line height */
         }
 
         .repo-count {
@@ -266,12 +224,9 @@
             color: var(--github-text-secondary);
             background-color: var(--github-hover);
             padding: 2px 12px;
-            /* Slightly adjusted padding */
             border-radius: 12px;
             display: inline-block;
-            /* Makes it fit content width */
             align-self: flex-start;
-            /* Aligns to left instead of stretching */
         }
 
         /* Repository Grid */
@@ -290,7 +245,6 @@
             grid-template-columns: 1fr;
         }
 
-        /* Repository Item - Grid View */
         .repo-grid.grid-view .repo-item {
             padding: 24px;
             flex-direction: column;
@@ -300,7 +254,6 @@
             flex-wrap: wrap;
         }
 
-        /* Repository Item - List View */
         .repo-grid.list-view .repo-item {
             padding: 20px 24px;
             display: grid;
@@ -341,7 +294,6 @@
             }
         }
 
-        /* Repository Item */
         .repo-item {
             border: 1px solid var(--github-border);
             border-radius: 8px;
@@ -373,7 +325,6 @@
             line-height: 1.3;
             flex: 1;
             word-break: break-all;
-            /* Breaks anywhere */
         }
 
         .repo-title a:hover {
@@ -445,6 +396,65 @@
             color: var(--github-text-secondary);
         }
 
+        /* Archive dialog */
+        .archive-dialog {
+            width: min(700px, calc(100% - 32px));
+            max-width: 700px;
+            max-height: 85vh;
+            margin: auto;
+            padding: 24px;
+            border: 1px solid var(--github-border);
+            border-radius: 8px;
+            color: var(--github-text);
+            background: var(--github-bg);
+            box-shadow: 0 8px 32px rgba(27, 31, 35, 0.2);
+        }
+
+        .archive-dialog::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .archive-dialog h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .archive-dialog p {
+            margin: 8px 0 16px;
+            color: var(--github-text-secondary);
+            font-size: 14px;
+        }
+
+        #archiveCommands {
+            display: block;
+            width: 100%;
+            min-height: 220px;
+            padding: 12px;
+            border: 1px solid var(--github-border);
+            border-radius: 6px;
+            background: var(--github-hover);
+            color: var(--github-text);
+            font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            resize: vertical;
+            white-space: pre;
+            overflow: auto;
+        }
+
+        .archive-dialog-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .archive-dialog-status {
+            min-height: 20px;
+            margin-top: 8px;
+            color: var(--github-green);
+            font-size: 13px;
+        }
+
         /* Footer */
         .footer {
             text-align: center;
@@ -495,7 +505,6 @@
             margin-bottom: 16px;
         }
 
-        /* No Results */
         .no-results {
             text-align: center;
             padding: 60px 20px;
@@ -516,7 +525,6 @@
             color: var(--github-text-secondary);
         }
 
-        /* API Info */
         .api-info {
             font-size: 12px;
             color: var(--github-text-secondary);
@@ -530,7 +538,6 @@
             color: var(--github-green);
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             body {
                 padding: 16px;
@@ -559,6 +566,16 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (max-width: 500px) {
+            .archive-dialog {
+                padding: 16px;
+            }
+
+            .archive-dialog-actions {
+                flex-wrap: wrap;
+            }
+        }
     </style>
 </head>
 
@@ -568,12 +585,13 @@
         <div class="repo-header">
             <div>
                 <div class="user-info">
-                    <a href="https://github.com/igiteam" target="_blank" rel="norefferrer">
+                    <a href="https://github.com/igiteam" target="_blank" rel="noopener noreferrer">
                         <img src="https://github.com/igiteam.png" alt="GitHub Avatar" class="user-avatar"
                             id="userAvatar"
-                            onerror="this.src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'"></a>
+                            onerror="this.src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'">
+                    </a>
                     <div class="user-details">
-                        <a href="https://github.com/igiteam" target="_blank" rel="norefferrer">
+                        <a href="https://github.com/igiteam" target="_blank" rel="noopener noreferrer">
                             <div class="user-name" id="userName">IGITeam</div>
                         </a>
                         <div class="repo-count" id="repoCount">Loading repositories...</div>
@@ -583,7 +601,6 @@
                         <span>Live data from GitHub API</span>
                     </div>
                 </div>
-
             </div>
 
             <div class="search-container">
@@ -591,34 +608,34 @@
 
                 <div class="view-controls">
                     <div class="sort-buttons">
-                       <div style="width: 33px; height: 33px;  display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
-                            <a href="https://readme.macosxjs.com/?url=https%3A%2F%2Fgithub.com%2Figiteam%2Figi1-macbook-3d-workstation%2Fblob%2Fmain%2FREADME.md" target="_blank"
+                        <div style="width: 33px; height: 33px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                            <a href="https://readme.macosxjs.com/?url=https%3A%2F%2Fgithub.com%2Figiteam%2Figi1-macbook-3d-workstation%2Fblob%2Fmain%2FREADME.md" target="_blank" rel="noopener noreferrer"
                                 style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
                                 <img src="https://raw.githubusercontent.com/igiteam/igiteam.github.com/refs/heads/main/redcyan3d.png"
                                     alt="igi1-release" style="width: 30px; height: 30px; display: block; border-radius: 3px">
                             </a>
                         </div>
-                        <button class="btn-icon" id="sortTimeBtn" title="Sort by last updated">
+                        <button class="btn-icon" id="sortTimeBtn" title="Sort by last updated" type="button">
                             <i class="fas fa-clock"></i>
                             <span class="sort-text">Time</span>
                         </button>
-                        <button class="btn-icon" id="sortStarsBtn" title="Sort by stars">
+                        <button class="btn-icon" id="sortStarsBtn" title="Sort by stars" type="button">
                             <i class="far fa-star"></i>
                             <span class="sort-text">Stars</span>
                         </button>
-                        <button class="btn-icon" id="sortNameBtn" title="Sort by name">
+                        <button class="btn-icon" id="sortNameBtn" title="Sort by name" type="button">
                             <i class="fas fa-font"></i>
                             <span class="sort-text">Name</span>
                         </button>
-                        <div style="width: 33px; height: 33px;  display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
-                            <a href="https://buymeacoffee.com/igiteam" target="_blank"
+                        <div style="width: 33px; height: 33px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                            <a href="https://buymeacoffee.com/igiteam" target="_blank" rel="noopener noreferrer"
                                 style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
                                 <img src="https://raw.githubusercontent.com/igiteam/igiteam.github.com/refs/heads/main/apple-icon-120x120.webp"
                                     alt="Buy Me a Coffee" style="width: 30px; height: 30px; display: block;">
                             </a>
                         </div>
-                        <div style="width: 33px; height: 33px;  display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
-                            <a href="https://readme.macosxjs.com/?url=https%3A%2F%2Fgithub.com%2Figiteam%2Figi1-macbook-3d-workstation%2Fblob%2Fmain%2FRELEASE.md" target="_blank"
+                        <div style="width: 33px; height: 33px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                            <a href="https://readme.macosxjs.com/?url=https%3A%2F%2Fgithub.com%2Figiteam%2Figi1-macbook-3d-workstation%2Fblob%2Fmain%2FRELEASE.md" target="_blank" rel="noopener noreferrer"
                                 style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
                                 <img src="https://raw.githubusercontent.com/igiteam/igiteam.github.com/refs/heads/main/igi1dj.png"
                                     alt="igi1-release" style="width: 30px; height: 30px; display: block; border-radius: 3px">
@@ -627,11 +644,15 @@
                     </div>
 
                     <div class="view-toggle">
-                        <button class="btn-icon" id="gridViewBtn" title="Grid view">
+                        <button class="btn-icon" id="gridViewBtn" title="Grid view" type="button">
                             <i class="fas fa-th-large"></i>
                         </button>
-                        <button class="btn-icon" id="listViewBtn" title="List view">
+                        <button class="btn-icon" id="listViewBtn" title="List view" type="button">
                             <i class="fas fa-list"></i>
+                        </button>
+                        <button class="btn-icon" id="archiveReposBtn" title="Generate curl commands to download repository ZIPs" type="button">
+                            <i class="fas fa-download"></i>
+                            <span class="sort-text">Archive</span>
                         </button>
                     </div>
                 </div>
@@ -645,9 +666,33 @@
                 <p>Loading repositories from GitHub...</p>
             </div>
         </div>
+
+        <!-- Archive Repositories Dialog -->
+        <dialog id="archiveDialog" class="archive-dialog" aria-labelledby="archiveDialogTitle">
+            <h2 id="archiveDialogTitle">Archive repositories</h2>
+            <p>
+                Copy and run these commands in Terminal to download ZIP archives
+                of every loaded repository's default branch. Each archive is saved
+                in the current directory.
+            </p>
+            <textarea id="archiveCommands" readonly rows="12"
+                aria-label="Repository archive curl commands"
+                spellcheck="false"></textarea>
+            <div class="archive-dialog-status" id="archiveDialogStatus" aria-live="polite"></div>
+            <div class="archive-dialog-actions">
+                <button class="btn-icon" id="copyArchiveCommandsBtn" type="button">
+                    <i class="fas fa-copy"></i>
+                    <span>Copy commands</span>
+                </button>
+                <button class="btn-icon" id="closeArchiveDialogBtn" type="button">
+                    Close
+                </button>
+            </div>
+        </dialog>
+
         <!-- Footer -->
         <div class="footer">
-            <p>Showing repositories from <a href="https://github.com/igiteam" target="_blank"
+            <p>Showing repositories from <a href="https://github.com/igiteam" target="_blank" rel="noopener noreferrer"
                     id="githubLink">github.com/igiteam</a></p>
             <p>Updated in real-time via GitHub API</p>
         </div>
@@ -814,7 +859,6 @@
                 return;
             }
 
-            // Update user info
             if (userData) {
                 userName.textContent = userData.name || userData.login;
                 githubLink.href = userData.html_url;
@@ -830,7 +874,7 @@
                 html += `
                     <div class="repo-item">
                         <div class="repo-title">
-                            <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
                             <span class="repo-visibility">${visibility}</span>
                         </div>
                         <p class="repo-description">${repo.description || 'No description provided'}</p>
@@ -861,8 +905,6 @@
 
             container.innerHTML = html;
             repoCount.textContent = `${repositories.length} repositories`;
-
-            // Apply current view
             applyView();
         }
 
@@ -870,17 +912,81 @@
         function updateAndRender() {
             if (!currentRepos.length) return;
 
-            // Apply search
             let filteredRepos = searchRepositories(currentRepos, currentSearchQuery);
-
-            // Apply sort
             filteredRepos = sortRepositories(filteredRepos, currentSort);
-
-            // Render
             renderRepositories(filteredRepos, currentUserData);
-
-            // Update button states
             updateSortButtons();
+        }
+
+        // Quote a value safely for a POSIX shell command.
+        function shellQuote(value) {
+            return "'" + String(value).replace(/'/g, "'\\''") + "'";
+        }
+
+        // Build one curl command for each real repository returned by GitHub.
+        function buildArchiveCommands() {
+            const validRepos = currentRepos.filter(repo =>
+                repo.full_name &&
+                repo.default_branch &&
+                !repo.private
+            );
+
+            if (validRepos.length === 0) {
+                return '# No public repositories are available to archive.';
+            }
+
+            return validRepos.map(repo => {
+                const parts = repo.full_name.split('/');
+                if (parts.length !== 2 || !parts[0] || !parts[1]) {
+                    return null;
+                }
+
+                // Encode each branch segment while preserving slash separators.
+                const encodedBranch = repo.default_branch
+                    .split('/')
+                    .map(segment => encodeURIComponent(segment))
+                    .join('/');
+
+                const archiveUrl =
+                    `https://github.com/${encodeURIComponent(parts[0])}/${encodeURIComponent(parts[1])}` +
+                    `/archive/refs/heads/${encodedBranch}.zip`;
+
+                const filename = `${repo.full_name.replace(/[^A-Za-z0-9._-]+/g, '_')}.zip`;
+
+                return `curl -L --fail --show-error -o ${shellQuote(filename)} ${shellQuote(archiveUrl)}`;
+            }).filter(Boolean).join('\n');
+        }
+
+        // Copy the generated commands to the clipboard.
+        async function copyArchiveCommands() {
+            const textarea = document.getElementById('archiveCommands');
+            const status = document.getElementById('archiveDialogStatus');
+
+            if (!textarea.value.trim() || textarea.value.startsWith('# No public repositories')) {
+                status.textContent = 'There are no archive commands to copy.';
+                return;
+            }
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(textarea.value);
+                } else {
+                    textarea.focus();
+                    textarea.select();
+                    const copied = document.execCommand('copy');
+                    textarea.setSelectionRange(0, 0);
+
+                    if (!copied) {
+                        throw new Error('Clipboard copy was not available.');
+                    }
+                }
+
+                status.textContent = 'Commands copied to clipboard.';
+            } catch (error) {
+                status.textContent = 'Copy failed. Select the commands and copy them manually.';
+                textarea.focus();
+                textarea.select();
+            }
         }
 
         // Setup event listeners for controls
@@ -891,6 +997,12 @@
             const sortNameBtn = document.getElementById('sortNameBtn');
             const gridViewBtn = document.getElementById('gridViewBtn');
             const listViewBtn = document.getElementById('listViewBtn');
+            const archiveReposBtn = document.getElementById('archiveReposBtn');
+            const archiveDialog = document.getElementById('archiveDialog');
+            const archiveCommands = document.getElementById('archiveCommands');
+            const copyArchiveCommandsBtn = document.getElementById('copyArchiveCommandsBtn');
+            const closeArchiveDialogBtn = document.getElementById('closeArchiveDialogBtn');
+            const archiveDialogStatus = document.getElementById('archiveDialogStatus');
 
             // Search
             searchInput.addEventListener('input', (e) => {
@@ -932,24 +1044,38 @@
                 applyView();
             });
 
+            // Archive button: include all loaded public repositories, not just search results.
+            archiveReposBtn.addEventListener('click', () => {
+                archiveCommands.value = buildArchiveCommands();
+                archiveDialogStatus.textContent = `${currentRepos.filter(repo => repo.full_name && repo.default_branch && !repo.private).length} public repositories included.`;
+                archiveDialog.showModal();
+                archiveCommands.focus();
+            });
+
+            copyArchiveCommandsBtn.addEventListener('click', copyArchiveCommands);
+            closeArchiveDialogBtn.addEventListener('click', () => archiveDialog.close());
+
+            // Close the dialog when clicking its backdrop.
+            archiveDialog.addEventListener('click', (event) => {
+                if (event.target === archiveDialog) {
+                    archiveDialog.close();
+                }
+            });
+
             // Set initial button states
             updateViewButtons();
             updateSortButtons();
             applyView();
         }
 
-        // Fetch data from GitHub API
-        // Replace the fetchGitHubData function with this version:
-
+        // Fetch data from GitHub API, including all pages.
         async function fetchGitHubData() {
             try {
-                // Show loading state
                 document.getElementById('loadingState').innerHTML = `
-            <i class="fas fa-spinner fa-spin"></i>
-            <p>Fetching data from GitHub API...</p>
-        `;
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Fetching data from GitHub API...</p>
+                `;
 
-                // Fetch user data
                 const userResponse = await fetch(GITHUB_API_URL);
 
                 if (!userResponse.ok) {
@@ -958,7 +1084,6 @@
 
                 const userData = await userResponse.json();
 
-                // Fetch ALL repositories with pagination
                 let allRepos = [];
                 let page = 1;
                 let hasMore = true;
@@ -980,56 +1105,45 @@
                         allRepos = [...allRepos, ...reposData];
                         page++;
 
-                        // Check if we've received less than a full page (last page)
                         if (reposData.length < 100) {
                             hasMore = false;
                         }
                     }
                 }
 
-                // Store data
                 currentRepos = allRepos;
                 currentUserData = userData;
 
-                console.log(`Fetched ${allRepos.length} repositories`); // Will show 180 instead of 100
+                console.log(`Fetched ${allRepos.length} repositories`);
 
-                // Apply initial sort from localStorage
                 currentRepos = sortRepositories(currentRepos, currentSort);
-
-                // Render the repositories
                 renderRepositories(currentRepos, userData);
-
-                // Setup controls
                 setupControls();
-
-                // Focus on search input
                 document.getElementById('repoSearch').focus();
 
             } catch (error) {
                 console.error('Error fetching GitHub data:', error);
 
-                // Show error state
                 document.getElementById('reposContainer').innerHTML = `
-            <div class="error">
-                <i class="fas fa-exclamation-triangle"></i>
-                <p>Failed to load repositories from GitHub API.</p>
-                <p style="font-size: 14px; margin-top: 8px;">${error.message}</p>
-                <p style="font-size: 14px; margin-top: 16px;">
-                    Check the console for details or try refreshing the page.
-                </p>
-            </div>
-        `;
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Failed to load repositories from GitHub API.</p>
+                        <p style="font-size: 14px; margin-top: 8px;">${error.message}</p>
+                        <p style="font-size: 14px; margin-top: 16px;">
+                            Check the console for details or try refreshing the page.
+                        </p>
+                    </div>
+                `;
 
                 document.getElementById('repoCount').textContent = 'Error loading';
 
-                // Fallback to sample data after 3 seconds
                 setTimeout(() => {
                     loadSampleData();
                 }, 3000);
             }
         }
 
-        // Fallback sample data
+        // Fallback sample data (not included in Archive commands).
         function loadSampleData() {
             const sampleRepos = [
                 {
@@ -1048,7 +1162,7 @@
                     language: "JavaScript",
                     stargazers_count: 5,
                     forks_count: 2,
-                    updated_at: new Date(Date.now() - 86400000).toISOString(), // Yesterday
+                    updated_at: new Date(Date.now() - 86400000).toISOString(),
                     private: false,
                     html_url: "https://github.com/igiteam"
                 },
@@ -1058,7 +1172,7 @@
                     language: "Python",
                     stargazers_count: 15,
                     forks_count: 3,
-                    updated_at: new Date(Date.now() - 172800000).toISOString(), // 2 days ago
+                    updated_at: new Date(Date.now() - 172800000).toISOString(),
                     private: false,
                     html_url: "https://github.com/igiteam"
                 }
@@ -1074,7 +1188,6 @@
             renderRepositories(currentRepos, currentUserData);
             setupControls();
 
-            // Update API info to show fallback
             document.querySelector('.api-info').innerHTML = `
                 <i class="fas fa-exclamation-triangle" style="color: #cf222e;"></i>
                 <span>Using sample data (GitHub API unavailable)</span>
