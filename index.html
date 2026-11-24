@@ -68,9 +68,15 @@
             border-bottom: 1px solid var(--github-border);
             flex-wrap: nowrap;
             gap: 16px;
+            scrollbar-width: none;        /* Firefox */
+            -ms-overflow-style: none;     /* old Edge/IE */
             overflow-x: auto;
             overflow-y: hidden;
             -webkit-overflow-scrolling: touch;
+        }
+
+        .repo-header::-webkit-scrollbar {
+            display: none;                /* Chrome, Safari, Edge (Chromium) */
         }
 
         .repo-header > * {
